@@ -20,7 +20,9 @@ app.get('/signup', function(req, res) {
     res.render('signup.ejs');
 });
 
-
+app.get('/form', function(req, res) {
+    res.render('mainForm.ejs');
+});
 
 
 

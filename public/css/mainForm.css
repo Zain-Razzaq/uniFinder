@@ -1,0 +1,29 @@
+
+@font-face {
+    font-family: 'heading';
+    src: url(../fonts/Gloock/Gloock-Regular.ttf);
+}
+
+body{
+
+    background-color: #f3f1f1;
+}
+
+h1{
+    font-size: 50px;
+    font-family: heading;
+    text-align: center;
+    margin: 30px;
+}
+
+form {
+    margin: 0 auto;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+    background-color: white;
+}
+
+button{
+    margin : 15px;
+}
