@@ -25,7 +25,9 @@ app.get('/form', function(req, res) {
 });
 
 
-
+app.get('/adminPage', function(req, res) {
+    res.render('adminPage.ejs');
+});
 
 
 

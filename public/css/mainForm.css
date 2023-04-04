@@ -6,7 +6,7 @@
 body {
     background: linear-gradient(to right bottom, rgb(12, 168, 168), rgba(255, 255, 255, 0.548));
     /* background-repeat: no-repeat; */
-    height: 100vh;
+    /* height: 100%; */
 }
 
 h1 {
@@ -15,6 +15,18 @@ h1 {
     text-align: center;
     margin: 30px;
 }
+h3 {
+    font-size: 30px;
+    color: white;
+}
+
+
+.container {
+    /* border: 2px solid #ccc; */
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
 
 form {
     /* margin: 0 auto;
@@ -22,10 +34,10 @@ form {
     border: 1px solid #CCC;
     border-radius: 1em;
     background-color: white; */
-    position: absolute;
-    top: 40%;
+    position: relative;
+    top: 280px;
     left: 50%;
-    width: 60%;
+    width: 100%;
     padding: 40px;
     margin: 20px auto;
     transform: translate(-50%, -55%);
@@ -153,5 +165,25 @@ form button span:nth-child(4) {
     50%,
     100% {
         bottom: 100%;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    h1 {
+        font-size: 55px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 40px;
+    }
+    h3{
+        font-size: 20px;
+    }
+    .row {
+        display: block;
     }
 }
