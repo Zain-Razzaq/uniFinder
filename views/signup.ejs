@@ -1,38 +1,35 @@
 <%- include('header') %>
-<link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/signup.css">
     <dir class="bgImage"></dir>
     <div class="login-box">
         <p>Create new Account</p>
-        <form>
+        <form id="signupForm" action="/signup" method="post">
             <div class="user-box">
-                <input required="" name="" type="text">
+                <input required="" name="userName" type="text">
                 <label>Name</label>
             </div>
             <div class="user-box">
-                <input required="" name="" type="text">
+                <input required="" name="userEmail" type="text">
                 <label>Email</label>
             </div>
             <div class="user-box">
-                <input required="" name="" type="password">
+                <input required="" name="userPassword" type="password">
                 <label>Password</label>
             </div>
             <div class="user-box">
-                <input required="" name="" type="password">
+                <input required="" name="confirmUserPassword" type="password">
                 <label>Confirm Password</label>
             </div>
-
-            <a href="#">
+            <a href="javascript:{}" onclick="document.getElementById('signupForm').submit();">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                Submit
+                Create Account
             </a>
         </form>
-        <p>Don't have an account? <a href="" class="a2">Sign up!</a></p>
+        <p>Already have an account? <a href="/login" class="a2">Login!</a></p>
     </div>
+    </body>
 
-
-</body>
-
-</html>
+    </html>

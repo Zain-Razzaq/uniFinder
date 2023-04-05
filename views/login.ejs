@@ -4,27 +4,27 @@
     <dir class="bgImage"></dir>
     <div class="login-box">
         <p>Login</p>
-        <form>
+        <form id="logInForm" action="/login" method="post">
             <div class="user-box">
-                <input required="" name="" type="text">
+                <input required="" name="userEmail" type="text">
                 <label>Email</label>
             </div>
             <div class="user-box">
-                <input required="" name="" type="password">
+                <input required="" name="userPassword" type="password">
                 <label>Password</label>
             </div>
-            <a href="#">
+            <a href="javascript:{}" onclick="document.getElementById('logInForm').submit();">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                Submit
+                Log IN
             </a>
         </form>
-        <p>Don't have an account? <a href="" class="a2">Sign up!</a></p>
+        <p>Don't have an account? <a href="/signup" class="a2">Sign up!</a></p>
     </div>
 
 
-</body>
+    </body>
 
-</html>
+    </html>
