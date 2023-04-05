@@ -92,7 +92,6 @@ form button span {
 
 
 .contact form{
-    /* align-items: center; */
     display: flex;
     border: 2px solid black;
     flex-direction: row;

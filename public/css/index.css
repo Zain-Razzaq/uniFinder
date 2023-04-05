@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'heading';
-    src: url(../fonts/Gloock/Gloock-Regular.ttf);
+    src: url(../fonts/Lato/Lato-Bold.ttf);
 }
 
 
@@ -41,8 +41,9 @@
 .center h2 {
     color: aliceblue;
     text-align: center;
+    /* text-align: justify; */
     font-family: heading;
-    font-size: 4rem;
+    font-size: 3rem;
     line-height: 5rem;
 }
 
@@ -148,17 +149,35 @@
     
   }
   
-  .counter::before {
-    
+  .c1::before{
     counter-reset: my-counter var(--num);
     content: counter(my-counter);
-    animation: count 4s forwards;
+    animation: count1 7s forwards;
   }
   
-  @keyframes count {
-    to { --num: 100;}
+  @keyframes count1 {
+    to { --num: 50;}
   }
   
+  .c2::before{
+    counter-reset: my-counter var(--num);
+    content: counter(my-counter);
+    animation: count2 6s forwards;
+  }
+  
+  @keyframes count2 {
+    to { --num: 220;}
+  }
+
+  .c3::before{
+    counter-reset: my-counter var(--num);
+    content: counter(my-counter);
+    animation: count3 5s forwards;
+  }
+  
+  @keyframes count3 {
+    to { --num: 160;}
+  }
   /* everything below is for demo appearances and not important to the concept */
   
 .contact-me{
@@ -168,6 +187,10 @@
 
 .contact-me h2{
     text-align: center;
+}
+
+.contact-me{
+    text-align: left;
 }
 
 .btn{
@@ -195,8 +218,8 @@
 
 .About-us{
     display: flex;
-    width: 50%;
-    margin: 100px auto 100px auto;
+    width: 70%;
+    margin: 100px auto;
     text-align: left;
 }
 
@@ -205,6 +228,23 @@
     height: 50%;
 }
 
+.about-desc p{
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
 .about-desc{
-    margin: 20px;
+    margin: 30px;
+}
+
+.contact-us{
+
+    width: 70%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.contact-us p{
+    font-size: 1.5rem;
+    text-align: justify;
 }
