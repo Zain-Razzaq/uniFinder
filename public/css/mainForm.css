@@ -85,6 +85,19 @@ form button span {
     display: block;
 }
 
+.contact form img{
+    width: 30%;
+    margin: 0px 50px;
+}
+
+
+.contact form{
+    /* align-items: center; */
+    display: flex;
+    border: 2px solid black;
+    flex-direction: row;
+}
+
 form button span:nth-child(1) {
     top: 0;
     left: -100%;

@@ -30,6 +30,10 @@ app.get('/adminPage', function(req, res) {
 });
 
 
+app.get('/contact-us', function(req, res) {
+    res.render('contactUs.ejs');
+});
+
 
 
 

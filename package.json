@@ -4,5 +4,23 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "nodemon": "^2.0.22"
-  }
+  },
+  "name": "unifinder",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zain-Razzaq/uniFinder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zain-Razzaq/uniFinder/issues"
+  },
+  "homepage": "https://github.com/Zain-Razzaq/uniFinder#readme",
+  "description": ""
 }

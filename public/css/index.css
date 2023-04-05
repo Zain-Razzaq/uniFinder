@@ -140,3 +140,71 @@
         padding: 0.7em 2em;
     }
 }
+
+@property --num {
+    syntax: '<integer>';
+    inherits: true;
+    initial-value: 0;
+    
+  }
+  
+  .counter::before {
+    
+    counter-reset: my-counter var(--num);
+    content: counter(my-counter);
+    animation: count 4s forwards;
+  }
+  
+  @keyframes count {
+    to { --num: 100;}
+  }
+  
+  /* everything below is for demo appearances and not important to the concept */
+  
+.contact-me{
+    width: 40%;
+    margin: 20px auto;
+}
+
+.contact-me h2{
+    text-align: center;
+}
+
+.btn{
+    background-color: rgb(12, 168, 168);
+    border-color: rgb(12, 168, 168);
+}
+
+
+.counter{
+    height: 15vh;
+    text-align: center;
+    color: rgb(12, 168, 168);
+    font-family:heading;
+    font-size: 2.5rem;
+}
+  
+.Counter-div {
+    padding: 0 330px;
+    max-width: 100vw;
+    width: 200px;
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+}
+
+.About-us{
+    display: flex;
+    width: 50%;
+    margin: 100px auto 100px auto;
+    text-align: left;
+}
+
+.About-us img{
+    width: 50%;
+    height: 50%;
+}
+
+.about-desc{
+    margin: 20px;
+}
