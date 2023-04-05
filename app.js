@@ -4,13 +4,8 @@ var app = express();
 var bodyParser = require('body-parser');
 
 var mysql = require('mysql');
-var connection = mysql.createConnection({
-    host     : 'unifinder.curfrjxboxm1.eu-north-1.rds.amazonaws.com',
-    user     : 'admin',
-    password : 'ZainSumair123',
-    database : 'uniFinder'
 
-});
+var connection =require('./mySql.js').connection;
 
 connection.connect(function(err) {
     if (err) {
