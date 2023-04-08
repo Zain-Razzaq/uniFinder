@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'heading';
-    src: url(../fonts/Lato/Lato-Bold.ttf);
+    src: url(../fonts/Gloock/Gloock-Regular.ttf);
 }
 
 
@@ -43,7 +43,7 @@
     text-align: center;
     /* text-align: justify; */
     font-family: heading;
-    font-size: 3rem;
+    font-size: 3.5rem;
     line-height: 5rem;
 }
 
@@ -60,63 +60,129 @@
 /* #################################  HomePage Buttons  ################################# */
 
 
-.homeB {
-    border: none;
-    display: block;
-    position: relative;
-    padding: 0.7em 2.4em;
-    font-size: 18px;
-    background: transparent;
-    cursor: pointer;
-    user-select: none;
-    overflow: hidden;
-    color: rgb(12, 168, 168);
-    z-index: 1;
-    font-family: inherit;
-    font-weight: 500;
-}
-
-.homeB span {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: -1;
-    border: 4px solid rgb(12, 168, 168);
-}
-
-.homeB span::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 8%;
-    height: 500%;
-    background: var(--lightgray);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-60deg);
-    transition: all 0.5s;
-}
-
-.homeB:hover span::before {
-    transform: translate(-50%, -50%) rotate(-90deg);
-    width: 100%;
-    background: rgb(12, 168, 168);
-}
-
-.homeB:hover {
-    color: white;
-}
-
-.homeB:active span::before {
-    background: rgb(12, 168, 168);
-}
-
-
 .homeButtons a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: rgb(12, 168, 168);
+    font-size: 20px;
     text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 3px
+}
+
+.homeButtons a:hover {
+    background: #fff;
+    color: #272727;
+    border-radius: 5px;
+}
+
+.homeButtons a span {
+    position: absolute;
+    display: block;
+}
+
+.homeButtons a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgb(12, 168, 168));
+    animation: btn-anim1 1.5s linear infinite;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.homeButtons a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, rgb(12, 168, 168));
+    animation: btn-anim2 1.5s linear infinite;
+    animation-delay: .375s
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+.homeButtons a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, rgb(12, 168, 168));
+    animation: btn-anim3 1.5s linear infinite;
+    animation-delay: .75s
+}
+
+@keyframes btn-anim3 {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+.homeButtons a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, rgb(12, 168, 168));
+    animation: btn-anim4 1.5s linear infinite;
+    animation-delay: 1.125s
+}
+
+@keyframes btn-anim4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+
+.homeButtons p:last-child {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.homeButtons a.a2 {
+    color: #fff;
+    text-decoration: none;
+}
+
+.homeButtons a.a2:hover {
+    background: transparent;
+    color: #aaa;
+    border-radius: 5px;
 }
 
 /* #################################  Responsive HomePage Center  ################################# */
@@ -146,105 +212,112 @@
     syntax: '<integer>';
     inherits: true;
     initial-value: 0;
-    
-  }
-  
-  .c1::before{
+
+}
+
+.c1::before {
     counter-reset: my-counter var(--num);
     content: counter(my-counter);
     animation: count1 7s forwards;
-  }
-  
-  @keyframes count1 {
-    to { --num: 50;}
-  }
-  
-  .c2::before{
+}
+
+@keyframes count1 {
+    to {
+        --num: 50;
+    }
+}
+
+.c2::before {
     counter-reset: my-counter var(--num);
     content: counter(my-counter);
     animation: count2 6s forwards;
-  }
-  
-  @keyframes count2 {
-    to { --num: 220;}
-  }
+}
 
-  .c3::before{
+@keyframes count2 {
+    to {
+        --num: 220;
+    }
+}
+
+.c3::before {
     counter-reset: my-counter var(--num);
     content: counter(my-counter);
     animation: count3 5s forwards;
-  }
-  
-  @keyframes count3 {
-    to { --num: 160;}
-  }
-  /* everything below is for demo appearances and not important to the concept */
-  
-.contact-me{
+}
+
+@keyframes count3 {
+    to {
+        --num: 160;
+    }
+}
+
+/* everything below is for demo appearances and not important to the concept */
+
+.contact-me {
     width: 40%;
     margin: 20px auto;
 }
 
-.contact-me h2{
+.contact-me h2 {
     text-align: center;
 }
 
-.contact-me{
+.contact-me {
     text-align: left;
 }
 
-.btn{
+.btn {
     background-color: rgb(12, 168, 168);
     border-color: rgb(12, 168, 168);
 }
 
 
-.counter{
+.counter {
     height: 15vh;
     text-align: center;
     color: rgb(12, 168, 168);
-    font-family:heading;
+    font-family: heading;
     font-size: 2.5rem;
 }
-  
+
 .Counter-div {
     padding: 0 330px;
     max-width: 100vw;
     width: 200px;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     width: 100%;
 }
 
-.About-us{
+.About-us {
     display: flex;
     width: 70%;
     margin: 100px auto;
     text-align: left;
 }
 
-.About-us img{
+.About-us img {
     width: 50%;
     height: 50%;
 }
 
-.about-desc p{
+.about-desc p {
     font-size: 1.5rem;
     text-align: justify;
 }
 
-.about-desc{
+.about-desc {
     margin: 30px;
 }
 
-.contact-us{
+.contact-us {
 
     width: 70%;
     margin: 100px auto;
     text-align: center;
 }
 
-.contact-us p{
+.contact-us p {
     font-size: 1.5rem;
     text-align: justify;
 }
