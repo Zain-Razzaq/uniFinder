@@ -4,9 +4,18 @@ const app = express();
 const bodyParser = require('body-parser');
 const bcrypt= require('bcrypt');  // for hashing password
 
+require('dotenv').config();
+
 var mysql = require('mysql');
 
-var connection =require('./mySql.js').connection;
+// var connection =require('./mySql.js').connection;
+
+connection =mysql.createConnection({
+    host : process.env.DB_HOST,
+    user : process.env.DB_USER,
+    password : process.env.DB_PASS,
+    database : process.env.DB_NAME
+});
 
 connection.connect(function(err) {
     if (err) {
