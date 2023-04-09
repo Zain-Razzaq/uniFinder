@@ -8,62 +8,74 @@
 
 
         <h1>Match Your Ambition</h1>
-        <form action="">
+        <form action="/form" method="post">
             <!-- <div class="form-group"> -->
             <div class="row">
                 <div class="col">
                     <label for="">Degree Level</label>
-                    <select class="form-control form-control-sm" name="" id="">
-                        <option value="none" selected disabled hidden>Select an Option</option>
-                        <option value="">Bachelors</option>
-                        <option value="">Masters</option>
-                        <option value="">PhD</option>
+                    <select class="form-control form-control-sm" name="degreeLevel" id="" required>
+                        <option value="" selected disabled hidden>Select an Option</option>
+                        <option value="Bachelors">Bachelors</option>
+                        <option value="Masters">Masters</option>
+                        <option value="PhD">PhD</option>
                     </select>
                 </div>
                 <div class="col">
                     <label for="">Degree</label>
-                    <select class="form-control form-control-sm" name="" id="">
+                    <select class="form-control form-control-sm" name="degreeName" id="" required>
                         <option value="none" selected disabled hidden>Select an Option</option>
-                        <option value="">Computer Science</option>
+                        <!-- <option value="">Computer Science</option>
                         <option value="">Electrical Engineering</option>
                         <option value="">Mechanical Engineering</option>
                         <option value="">Civil Engineering</option>
                         <option value="">Chemical Engineering</option>
                         <option value="">Biomedical Engineering</option>
                         <option value="">Aeronautical Engineering</option>
-                        <option value="">Agricultural Engineering</option>
+                        <option value="">Agricultural Engineering</option> -->
+                        <% for(var i=0; i<degree_names.length;i++){ %>
+                            <option value="<%= degree_names[i].degree_name %>">
+                                <%= degree_names[i].degree_name %>
+                            </option>
+                            <% } %>
+
                     </select>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label for="">Sector</label>
-                    <select class="form-control form-control-sm" name="" id="">
+                    <select class="form-control form-control-sm" name="sector" id="">
                         <option value="none" selected disabled hidden>Select an Option</option>
-                        <option value="">Public</option>
-                        <option value="">Private</option>
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
                     </select>
                 </div>
                 <div class="col">
                     <label for="">University Type</label>
-                    <select class="form-control form-control-sm" name="" id="">
+                    <select class="form-control form-control-sm" name="universityType" id="">
                         <option value="none" selected disabled hidden>Select an Option</option>
-                        <option value="">Medical</option>
-                        <option value="">Engineering</option>
-                        <option value="">Business</option>
-                        <option value="">General</option>
-                        <option value="">Law</option>
-                        <option value="">IT</option>
+                        <option value="Medical">Medical</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Business">Business</option>
+                        <option value="General">General</option>
+                        <option value="Law">Law</option>
+                        <option value="IT">IT</option>
                     </select>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label for="">City</label>
-                    <select class="form-control form-control-sm" name="" id="">
+                    <select class="form-control form-control-sm" name="city" id="">
                         <option value="none" selected disabled hidden>Select an Option</option>
-                        <option value="">Lahore</option>
+                        <!-- <option value="">Lahore</option>
                         <option value="">Karachi</option>
+                        <option value="">Islamabad</option> -->\
+                        <% for(var i=0; i<city_names.length; i++){ %>
+                            <option value="<%= city_names[i].city %>">
+                                <%= city_names[i].city %>
+                            </option>
+                            <% } %>
                     </select>
                 </div>
             </div>
@@ -77,6 +89,42 @@
             <!-- </div> -->
 
         </form>
+
+        <div class="displayData">
+            <% if(display!=null){%>
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">University</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Sector</th>
+                        <th scope="col">Website</th>
+                        <th scope="col">Times Ranking</th>
+                        <th scope="col">World Ranking</th>
+                        <th scope="col">HEC Ranking</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<display.length; i++){ %>
+                            <tr>
+                                <th scope="row"><%= i+1 %></th>
+                                <td><%= display[i].name %></td>
+                                <td><%= display[i].city %></td>
+                                <td><%= display[i].type %></td>
+                                <td><%= display[i].sector %></td>
+                                <td> <a href="<%= display[i].website %>" target="_blank"> <%= display[i].website %> </a></td>
+                                <td><%= display[i].times_ranking %></td>
+                                <td><%= display[i].world_ranking %></td>
+                                <td><%= display[i].hec_ranking %></td>
+                            </tr>
+                        <% } %>
+                      
+                    </tbody>
+                  </table>
+            <%}%>
+        </div>
 
 
     </div>

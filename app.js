@@ -44,11 +44,97 @@ app.get('/signup', function(req, res) {
     res.render('signup.ejs');
 });
 
+var degree_names = [];
+var city_names = [];
+var display = [];
+
 app.get('/form', function(req, res) {
-    res.render('mainForm.ejs');
+    // const info = {
+        
+    // }
+    // var degree_names: [];
+    // var city_names : [];
+
+    
+    connection.query('SELECT DISTINCT degree_name FROM degree ORDER BY degree_name', function (error, results, fields) {
+        degree_names = results;
+        // console.log(degree_names);
+    });
+    connection.query('SELECT DISTINCT city FROM university ORDER BY city', function (error, results, fields) {
+        city_names = results;
+        // console.log(city_names);
+    });
+
+
+    res.render('mainForm.ejs', {degree_names: degree_names, city_names: city_names, display: display});
+    // res.render('mainForm.ejs');
 });
 
-
+app.post('/form', function(req, res) {
+    requirments= {
+        degreeLevel: req.body.degreeLevel,
+        degreeName: req.body.degreeName,
+        sector : req.body.sector,
+        universityType: req.body.universityType,
+        city: req.body.city,
+    }
+    var count=0;
+    var first= true;
+    for(var i=0;i<5;i++){
+        if(requirments.degreeLevel != undefined) {
+            count+=1;
+        }
+    }
+    var q = "SELECT DISTINCT university.name, university.city, university.type,university.website,university.times_ranking,university.world_ranking,university.hec_ranking,university.sector FROM university JOIN degree ON university.id = degree.university_id";
+        q+=" WHERE ";
+        if(requirments.degreeLevel != undefined) {
+            first = false;
+            q += "degree.degree_level like '%"+ requirments.degreeLevel+"%'";
+        }
+        if(requirments.degreeName != undefined) {
+            if(!first){
+                q+=" AND ";
+            }
+            first = false;
+            q += "degree.degree_name like '%"+ requirments.degreeName+"%'";
+        }
+        if(requirments.sector != undefined) {
+            if(!first){
+                q+=" AND ";
+            }
+            first = false;
+            q += "university.sector like '%"+ requirments.sector+"%'";
+        }
+        if(requirments.universityType != undefined) {
+            if(!first){
+                q+=" AND ";
+            }
+            first = false;
+            q += "university.type like '%"+ requirments.universityType+"%'";
+        }
+        if(requirments.city != undefined) {
+            if(!first){
+                q+=" AND ";
+            }
+            first = false;
+            q += "university.city like '%"+ requirments.city+"%'";
+        }
+        q+=";";
+        
+    console.log(q);
+    connection.query(q, function (error, results, fields) {
+        if (error) {
+            console.log("error ocurred for query",error);
+            res.redirect('/form');
+        } else {
+            // console.log(results);
+            display = results;
+            console.log(display);
+        }
+    });
+    // console.log(display);
+    res.render('mainForm.ejs', {degree_names: degree_names, city_names: city_names, display: display});
+});
 app.get('/adminPage', function(req, res) {
     res.render('adminPage.ejs');
 });
