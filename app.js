@@ -40,6 +40,7 @@ app.get('/login', function(req, res) {
     res.render('login.ejs');
 });
 
+
 app.get('/signup', function(req, res) {
     res.render('signup.ejs');
 });
@@ -64,11 +65,13 @@ app.get('/form', function(req, res) {
         city_names = results;
         // console.log(city_names);
     });
-
+ 
 
     res.render('mainForm.ejs', {degree_names: degree_names, city_names: city_names, display: display});
     // res.render('mainForm.ejs');
 });
+
+
 
 app.post('/form', function(req, res) {
     requirments= {
@@ -132,9 +135,11 @@ app.post('/form', function(req, res) {
             console.log(display);
         }
     });
+
     // console.log(display);
     res.render('mainForm.ejs', {degree_names: degree_names, city_names: city_names, display: display});
 });
+
 app.get('/adminPage', function(req, res) {
     res.render('adminPage.ejs');
 });
@@ -177,6 +182,7 @@ app.post('/signup', function(req, res) {
         });
     }
 });
+
 
 app.post('/login', function(req, res) {
     var userData = {

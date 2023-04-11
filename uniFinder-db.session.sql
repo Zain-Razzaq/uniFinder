@@ -98,4 +98,12 @@
 
 -- UPDATE degree set degree_level = 'Bachelors' where degree_level = 'Bachelor';
 
-SELECT * FROM degree;
+
+
+-- SELECT * FROM users;
+
+-- delete from users where password like '%123%';
+
+SELECT * FROM users;
+
+
