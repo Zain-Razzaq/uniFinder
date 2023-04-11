@@ -289,35 +289,134 @@
     width: 100%;
 }
 
-.About-us {
+.About-us{
     display: flex;
-    width: 70%;
+    width: 80%;
     margin: 100px auto;
     text-align: left;
-}
-
-.About-us img {
+    }
+    
+    .About-us img{
     width: 50%;
     height: 50%;
-}
-
-.about-desc p {
-    font-size: 1.5rem;
+    }
+    
+    .about-desc p{
+    font-size: 28px;
     text-align: justify;
-}
-
-.about-desc {
-    margin: 30px;
-}
-
-.contact-us {
-
-    width: 70%;
+    }
+    
+    .about-desc{
+    margin: 0px 30px;
+    }
+    
+    .contact-us{
     margin: 100px auto;
-    text-align: center;
-}
-
-.contact-us p {
+    width: 80%;
+    }
+    
+    .contactBody{
+    display: flex;
+    flex-direction: row;
+    }
+    
+    .contactDesc{
+    width: 50%;
     font-size: 1.5rem;
+    padding: 20px;
     text-align: justify;
-}
+    }
+    
+    .contactForm{
+    width: 50%;
+    padding: 20px;
+    
+    }
+    
+    .contactForm .row .col input , textarea{
+    width: 100%;
+    }
+    
+    @media screen and (max-width: 1920px) {
+    .about-desc p{
+    font-size: 1.5rem;
+    }
+    .About-us img{
+    width: 40%;
+    height: 40%;
+    }
+    }
+    
+    @media screen and (max-width: 1600px) {
+    .about-desc{
+    margin: 0px 20px;
+    }
+    .about-desc h1{
+    padding: 0px;
+    margin-top: 0px;
+    }
+    .about-desc p{
+    font-size: 1.3rem;
+    }
+    .About-us img{
+    width: 50%;
+    height: 80%;
+    }
+    .Counter-div{
+    padding: 0px 60px;
+    }
+    }
+    
+    @media screen and (max-width: 1400px) {
+    .about-desc p{
+    font-size: 1.2rem;
+    }
+    .About-us img{
+    width: 50%;
+    height: 90%;
+    }
+    }
+    
+    @media screen and (max-width: 1200px) {
+    .About-us{
+    display: flex;
+    flex-direction: column;
+    }
+    .About-us img{
+    width: 100%;
+    height: 80%;
+    }
+    
+    .about-desc h1{
+    text-align: center;
+    margin: 15px 0px;
+    }
+    
+    .about-desc p{
+    font-size: 1.5rem;
+    }
+    .contact-us h1{
+    text-align: center;
+    }
+    .contactBody{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    }
+    .contactDesc{
+    width: 100%;
+    padding: 0px 20px;
+    
+    }
+    .contactForm{
+    width: 100%;
+    }
+    }
+    
+    @media screen and (max-width: 600px) {
+    .Counter-div{
+    flex-direction: column;
+    font-size: 1.5rem;
+    }
+    }
+    

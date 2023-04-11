@@ -1,61 +1,100 @@
 <%- include('header') %>
-    <link rel="stylesheet" href="css/index.css">
-    <!-- #################################   Home Page  #################################  -->
-    <div class="container">
-        <div class="homeBG"></div>
-        <div class="center">
-            <h2>Discover Your Path to Success with Our Comprehensive Collection Of Information On Pakistan's Top
-                Universities</h2>
-            <div class="homeButtons">
-                <a href="/form">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        Match Your Ambition
-                </a>
-                <!-- <a href="/login">
+<link rel="stylesheet" href="css/index.css">
+<!-- #################################   Home Page  #################################  -->
+<div class="container">
+    <div class="homeBG"></div>
+    <div class="center">
+        <h2>Discover Your Path to Success with Our Comprehensive Collection Of Information On Pakistan's Top
+            Universities</h2>
+        <div class="homeButtons">
+            <a href="/form">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Match Your Ambition
+            </a>
+            <!-- <a href="/login">
                     <button class="homeB">Login
                         <span></span>
                     </button>
                 </a> -->
-            </div>
         </div>
     </div>
+</div>
 
-    <div class="Counter-div">
-        <div class="counter c1"><b>+</b> <h2> Cities</h2></div>
-        <div class="counter c2"> <b>+</b><h2> Universities</h2></div>
-        <div class="counter c3"> <b>+</b><h2> Degrees</h2></div>
+<div class="Counter-div">
+    <div class="counter c1"><b>+</b>
+        <h2> Cities</h2>
     </div>
+    <div class="counter c2"> <b>+</b>
+        <h2> Universities</h2>
+    </div>
+    <div class="counter c3"> <b>+</b>
+        <h2> Degrees</h2>
+    </div>
+</div>
 
-    <div class="About-us">
-        <img  src="images/About_us.jpg" alt="About us">
-        <div class="about-desc">
-            <h2>About us</h2>
-            <p>
-                Welcome to our university recommendation system.
-                We understand that choosing the right university can be overwhelming, with so many options to consider. 
-                That's why we've developed an intuitive and easy-to-use recommendation system that takes into account a variety 
-                of factors such as academic interests, location, tuition costs, and student life. Our platform provide personalized
-                recommendations based on factors such as academic interests,location, and tuition costs. We are committed to providing 
-                accurate and up-to-date information to help students make informed decisions about their future.
+<div class="About-us">
+    <img src="images/About_us.jpg" alt="About us">
+    <div class="about-desc">
+        <h1>About us</h1>
+        <p>
+            Welcome to our university recommendation system.
+            We understand that choosing the right university can be overwhelming, with so many options to consider.
+            That's why we've developed an intuitive and easy-to-use recommendation system that takes into account a
+            variety
+            of factors such as academic interests, location, tuition costs, and student life. Our platform provide
+            personalized
+            recommendations based on factors such as academic interests,location, and tuition costs. We are committed to
+            providing
+            accurate and up-to-date information to help students make informed decisions about their future.
+        </p>
+    </div>
+</div>
+
+<div class="contact-us">
+    <h1>Get In Touch</h1>
+    <div class="contactBody">
+        <div class="contactDesc">
+            <p>If you have any questions, comments, or concerns about our website, please don't hesitate to contact us.
+                You can reach us by filling out the contact form on our website. We value your feedback and will do our
+                best to respond to your inquiry as soon as possible. Thank you for your interest in our website, and we
+                look
+                forward to hearing from you soon.
             </p>
         </div>
+        <div class="contactForm">
+            <form action="mailto:muhammadsumair5736@gmail.com" method="post" enctype="text/plain">
+                <div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Your Name</label><br>
+                            <input type="text" name="YourName" placeholder="Enter your name"><br></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Your Email</label><br>
+                            <input type="email" name="YourEmails" placeholder="Enter your email"><br></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Your Message</label><br>
+                            <textarea name="YourMessage" id="" cols="20" rows="7"
+                                placeholder="Write your message here!"></textarea></div>
+                    </div>
+                    <button class="homeB" type="submit">
+                        <span></span>
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
 
-    <div class="contact-us">
-        <h1>Get In Touch</h1>
-        <!-- <h3>You can contact me on Following given sites/platforms.</h3> -->
-        <p>If you have any questions, comments, or concerns about our website, please don't hesitate to contact us.
-            You can reach us by filling out the contact form on our website. We value your feedback and will do our
-            best to respond to your inquiry as soon as possible. Thank you for your interest in our website, and we look
-            forward to hearing from you soon.</p>
-        <button type="submit" href="/contact-us" class="btn btn-dark btn-lg">Contact me</button>
-    </div>
+<%- include('footer') %>
 
-    <%- include('footer') %>
+</body>
 
-    </body>
-
-    </html>
+</html>
