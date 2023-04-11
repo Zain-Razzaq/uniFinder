@@ -75,6 +75,7 @@ function getCityNames(){
     });
 }
 app.get('/form', function(req, res) {
+    display = [];
     getDegreeNames().then(function(){
         getCityNames().then(function(){
             res.render('mainForm.ejs', {degree_names: degree_names, city_names: city_names, display: display});
@@ -140,6 +141,7 @@ function getData(requirments){
 }
 
 app.post('/form', function(req, res) {
+    display = [];
     requirments= {
         degreeLevel: req.body.degreeLevel,
         degreeName: req.body.degreeName,
