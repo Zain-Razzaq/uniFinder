@@ -81,6 +81,12 @@
     border-radius: 5px;
 }
 
+.contactForm .homeButtons a:hover {
+    background: rgb(12, 168, 168);
+    color: white;
+    border-radius: 5px;
+}
+
 .homeButtons a span {
     position: absolute;
     display: block;
@@ -185,35 +191,6 @@
     border-radius: 5px;
 }
 
-/* #################################  Responsive HomePage Center  ################################# */
-
-
-@media screen and (max-width: 1000px) {
-    .center h2 {
-        font-size: 3rem;
-        line-height: 4rem;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .center h2 {
-        font-size: 2.5rem;
-        line-height: 3rem;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .homeB {
-        padding: 0.7em 2em;
-    }
-}
-
-@property --num {
-    syntax: '<integer>';
-    inherits: true;
-    initial-value: 0;
-
-}
 
 .c1::before {
     counter-reset: my-counter var(--num);
@@ -336,6 +313,36 @@
     .contactForm .row .col input , textarea{
     width: 100%;
     }
+
+    /* #################################  Responsive HomePage Center  ################################# */
+
+
+@media screen and (max-width: 1000px) {
+    .center h2 {
+        font-size: 3rem;
+        line-height: 4rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .center h2 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .homeB {
+        padding: 0.7em 2em;
+    }
+}
+
+@property --num {
+    syntax: '<integer>';
+    inherits: true;
+    initial-value: 0;
+
+}
     
     @media screen and (max-width: 1920px) {
     .about-desc p{
