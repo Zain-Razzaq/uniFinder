@@ -7,6 +7,11 @@ const bcrypt= require('bcrypt');  // for hashing password
 require('dotenv').config();
 
 var mysql = require('mysql');
+var uniNames = [];
+var degree_names = [];
+var city_names = [];
+var display = [];
+var firstTimeForUniNameFetch = true;
 
 // var connection =require('./mySql.js').connection;
 
@@ -45,9 +50,7 @@ app.get('/signup', function(req, res) {
     res.render('signup.ejs');
 });
 
-var degree_names = [];
-var city_names = [];
-var display = [];
+
 
 function getDegreeNames(){
     return new Promise((resolve, reject) => {
@@ -155,9 +158,76 @@ app.post('/form', function(req, res) {
     });
 });
 
+function getUniversityNames(){
+    return new Promise((resolve, reject) => {
+        connection.query('SELECT id,name FROM university ORDER BY name', function (error, results, fields) {
+            if (error) {
+                console.log("error ocurred for query",error);
+                reject(error);
+            }
+            uniNames = results;
+            resolve();
+        });
+    });
+}
+
 app.get('/adminPage', function(req, res) {
-    res.render('adminPage.ejs');
+    if(firstTimeForUniNameFetch){
+        getUniversityNames().then(function(){
+            res.render('adminPage.ejs',{universities : uniNames});
+        });
+        firstTimeForUniNameFetch = false;
+    }
+    else{
+        res.render ('adminPage.ejs',{universities : uniNames});
+    }
+
 });
+
+app.post('/addUniForm', function(req, res) {
+    var uniData = {
+        "name": req.body.uniName,
+        "city": req.body.uniCity,
+        "website": req.body.uniWebsite,
+        "type": req.body.uniType,
+        "times_ranking": req.body.uniTimesRanking,
+        "world_ranking": req.body.uniWorldRanking,
+        "hec_ranking": req.body.uniHecRanking,
+        "sector": req.body.uniSector,
+    }
+    connection.query('INSERT INTO university SET ?', uniData, function (error, results, fields) {
+        if (error) {
+            console.log("error ocurred for query",error);
+            res.redirect('/adminPage',{universities : uniNames});
+        }
+    });
+    getUniversityNames().then(function(){
+        res.render('adminPage.ejs',{universities : uniNames});
+    });
+});
+
+
+app.post('/addDegreeForm', function(req, res) {
+    var degreeData = {
+        "degree_name": req.body.degreeName,
+        "degree_level": req.body.degreeLevel,
+        "duration": req.body.degreeDuration,
+        "fee": req.body.degreeFee,
+        "uniId": req.body.uni_id,
+    }
+    console.log(degreeData);
+
+    q="INSERT INTO degree (degree_name, degree_level, duration, fee, university_id) values ('"+ degreeData.degree_name+"','"+ degreeData.degree_level+"','"+degreeData.duration+"','"+degreeData.fee+"','"+ degreeData.uniId+"');";
+
+    connection.query(q, degreeData, function (error, results, fields) {
+        if (error) {
+            console.log("error ocurred for query",error);
+            res.redirect('/adminPage',{universities : uniNames});
+        }
+    });
+    res.render('adminPage.ejs',{universities : uniNames});
+});
+
 
 app.post('/signup', function(req, res) {
     var userData = {
@@ -180,7 +250,7 @@ app.post('/signup', function(req, res) {
                     res.redirect('/signup');
                 }
                 else{
-                    bcrypt.hash(userData.password, 10, function(err, hash) {
+                    bcrypt.hash(userData.password, process.env.saltValue , function(err, hash) {
                         userData.password = hash;
                         connection.query('INSERT INTO users (username,password,email) values(?,?,?)',[userData.name,userData.password,userData.email], function (error, results, fields) {
                             if (error) {
@@ -212,7 +282,7 @@ app.post('/login', function(req, res) {
             if(results.length >0){
                 bcrypt.compare(userData.password, results[0].password, function(err, result) {
                     if(result) {
-                        res.redirect('/form');
+                        res.redirect('/adminPage');
                     }
                     else {
                         res.redirect('/login');

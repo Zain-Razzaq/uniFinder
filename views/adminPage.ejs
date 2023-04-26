@@ -8,48 +8,63 @@
     <div class="container">
 
 
-        <form action="">
+        <form action="/addUniForm" method="post">
             <h3>Add University</h3>
             <!-- <div class="form-group"> -->
             <div class="row">
                 <div class="col">
                     <label for="">Name</label>
-                    <input class="form-control" type="text" placeholder="Full Name of University">
+                    <input name="uniName" class="form-control" type="text" placeholder="Full Name of University">
                 </div>
                 <div class="col">
                     <label for="">Offical Website</label>
-                    <input class="form-control" type="text" placeholder="Enter full url">
+                    <input name="uniWebsite" class="form-control" type="text" placeholder="Enter full url">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Times Ranking</label>
+                    <input name="uniTimesRanking" class="form-control" type="text" placeholder="">
+                </div>
+                <div class="col">
+                    <label for="">World University Ranking</label>
+                    <input name="uniWorldRanking" class="form-control" type="text" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">HEC University Ranking</label>
+                    <input name="uniHecRanking" class="form-control" type="text" placeholder="">
+                </div>
+                <div class="col">
+                    <label for="">University Type</label>
+                    <select class="form-control form-control-sm" name="uniType" id="">
+                        <option value="none" selected disabled hidden>Select an Option</option>
+                        <option value="Medical">Medical</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Business">Business</option>
+                        <option value="General">General</option>
+                        <option value="Law">Law</option>
+                        <option value="IT">IT</option>
+                    </select>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label for="">Sector</label>
-                    <select class="form-control form-control-sm" name="" id="">
+                    <select class="form-control form-control-sm" name="uniSector" id="">
                         <option value="none" selected disabled hidden>Select an Option</option>
-                        <option value="">Public</option>
-                        <option value="">Private</option>
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
                     </select>
                 </div>
-                <div class="col">
-                    <label for="">University Type</label>
-                    <select class="form-control form-control-sm" name="" id="">
-                        <option value="none" selected disabled hidden>Select an Option</option>
-                        <option value="">Medical</option>
-                        <option value="">Engineering</option>
-                        <option value="">Business</option>
-                        <option value="">General</option>
-                        <option value="">Law</option>
-                        <option value="">IT</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col">
                     <label for="">City</label>
-                    <select class="form-control form-control-sm" name="" id="">
+                    <select class="form-control form-control-sm" name="uniCity" id="">
                         <option value="none" selected disabled hidden>Select an Option</option>
-                        <option value="">Lahore</option>
-                        <option value="">Karachi</option>
+                        <option value="Lahore">Lahore</option>
+                        <option value="Karachi">Karachi</option>
+                        <option value="Islamabad">Islamabad</option>
                     </select>
                 </div>
             </div>
@@ -69,48 +84,44 @@
 ################################# Add Degree #################################
 ################################# Add Degree ################################# -->
         
-<form action="">
+<form action="/addDegreeForm" method="post">
     <h3>Add Degree</h3>
     <!-- <div class="form-group"> -->
     <div class="row">
         <div class="col">
             <label for="">Name</label>
-            <input class="form-control" type="text" placeholder="Full Name">
+            <input class="form-control" type="text" name="degreeName" placeholder="Full Name">
         </div>
         <div class="col">
-            <label for="">Offical Website</label>
-            <input class="form-control" type="text" placeholder="Enter full url">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <label for="">Sector</label>
-            <select class="form-control form-control-sm" name="" id="">
+            <label for="">Degree Level</label>
+            <select class="form-control form-control-sm" name="degreeLevel" id="">
                 <option value="none" selected disabled hidden>Select an Option</option>
-                <option value="">Public</option>
-                <option value="">Private</option>
-            </select>
-        </div>
-        <div class="col">
-            <label for="">University Type</label>
-            <select class="form-control form-control-sm" name="" id="">
-                <option value="none" selected disabled hidden>Select an Option</option>
-                <option value="">Medical</option>
-                <option value="">Engineering</option>
-                <option value="">Business</option>
-                <option value="">General</option>
-                <option value="">Law</option>
-                <option value="">IT</option>
+                <option value="Bachelors">Bachelors</option>
+                <option value="Masters">Masters</option>
+                <option value="PhD">PhD</option>
             </select>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <label for="">City</label>
-            <select class="form-control form-control-sm" name="" id="">
+            <label for="">Duration</label>
+            <input type="number" class="form-control" name="degreeDuration" placeholder="Duration in Years">
+        </div>
+        <div class="col">
+            <label for="">Fee</label>
+            <input type="number" name="degreeFee" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="">University</label>
+            <select class="form-control form-control-sm" name="uni_id" id="">
                 <option value="none" selected disabled hidden>Select an Option</option>
-                <option value="">Lahore</option>
-                <option value="">Karachi</option>
+                <% for(var i=0; i<universities.length;i++){ %>
+                    <option value="<%= universities[i].id %>">
+                        <%= universities[i].name %>
+                    </option>
+                    <% } %>
             </select>
         </div>
     </div>
@@ -120,7 +131,8 @@
         <span></span>
         <span></span>
         <span></span>
-        Add</button>
+        Add
+    </button>
     <!-- </div> -->
 
 </form>

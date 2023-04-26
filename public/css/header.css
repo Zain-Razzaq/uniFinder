@@ -1,0 +1,168 @@
+.adminButton a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: rgb(12, 168, 168);
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 3px
+}
+
+
+.adminButton a:hover {
+    background: #fff;
+    color: #272727;
+    border-radius: 5px;
+}
+
+.adminButton a:hover {
+    background: rgb(12, 168, 168);
+    color: white;
+    border-radius: 5px;
+}
+
+.adminButton a span {
+    position: absolute;
+    display: block;
+}
+
+.adminButton a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgb(12, 168, 168));
+    animation: btn-anim1 1.5s linear infinite;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.adminButton a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, rgb(12, 168, 168));
+    animation: btn-anim2 1.5s linear infinite;
+    animation-delay: .375s
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+.adminButton a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, rgb(12, 168, 168));
+    animation: btn-anim3 1.5s linear infinite;
+    animation-delay: .75s
+}
+
+@keyframes btn-anim3 {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+.adminButton a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, rgb(12, 168, 168));
+    animation: btn-anim4 1.5s linear infinite;
+    animation-delay: 1.125s
+}
+
+@keyframes btn-anim4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+
+.adminButton p:last-child {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.adminButton a.a2 {
+    color: #fff;
+    text-decoration: none;
+}
+
+.adminButton a.a2:hover {
+    background: transparent;
+    color: #aaa;
+    border-radius: 5px;
+}
+
+
+.c1::before {
+    counter-reset: my-counter var(--num);
+    content: counter(my-counter);
+    animation: count1 7s forwards;
+}
+
+@keyframes count1 {
+    to {
+        --num: 50;
+    }
+}
+
+.c2::before {
+    counter-reset: my-counter var(--num);
+    content: counter(my-counter);
+    animation: count2 6s forwards;
+}
+
+@keyframes count2 {
+    to {
+        --num: 220;
+    }
+}
+
+.c3::before {
+    counter-reset: my-counter var(--num);
+    content: counter(my-counter);
+    animation: count3 5s forwards;
+}
+
+@keyframes count3 {
+    to {
+        --num: 160;
+    }
+}
