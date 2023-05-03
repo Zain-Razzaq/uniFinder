@@ -104,6 +104,6 @@
 
 -- delete from users where password like '%123%';
 
-SELECT * FROM degree;
+SELECT * FROM users;
 
 

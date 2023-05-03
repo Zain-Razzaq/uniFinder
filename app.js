@@ -124,7 +124,7 @@ function getData(requirments){
                 first = false;
                 q += "university.city like '%"+ requirments.city+"%'";
             }
-            q+=";";
+            q+=" order by university.hec_ranking;";
             
         // console.log(q);
         connection.query(q, function (error, results, fields) {
@@ -250,7 +250,7 @@ app.post('/signup', function(req, res) {
                     res.redirect('/signup');
                 }
                 else{
-                    bcrypt.hash(userData.password, process.env.saltValue , function(err, hash) {
+                    bcrypt.hash(userData.password, 10 , function(err, hash) {
                         userData.password = hash;
                         connection.query('INSERT INTO users (username,password,email) values(?,?,?)',[userData.name,userData.password,userData.email], function (error, results, fields) {
                             if (error) {
