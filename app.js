@@ -90,7 +90,7 @@ function getData(requirments){
     return new Promise((resolve, reject) => {
         var first= true;
 
-        var q = "SELECT DISTINCT university.name, university.city, university.type,university.website,university.times_ranking,university.world_ranking,university.hec_ranking,university.sector FROM university JOIN degree ON university.id = degree.university_id";
+        var q = "SELECT DISTINCT university.name, university.city, university.type,university.website,university.times_ranking,university.world_ranking,university.hec_ranking,university.sector,degree.fee FROM university JOIN degree ON university.id = degree.university_id";
             q+=" WHERE ";
             if(requirments.degreeLevel != undefined) {
                 first = false;
@@ -160,7 +160,7 @@ app.post('/form', function(req, res) {
 
 function getUniversityNames(){
     return new Promise((resolve, reject) => {
-        connection.query('SELECT id,name FROM university ORDER BY name', function (error, results, fields) {
+        connection.query('SELECT  id, name FROM university ORDER BY name', function (error, results, fields) {
             if (error) {
                 console.log("error ocurred for query",error);
                 reject(error);
