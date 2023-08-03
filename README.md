@@ -10,3 +10,4 @@ HTML5, CSS, Javascript, EJS, Node.js, Express.js
 
 ![Screenshot_2023-08-03-20-11-04_1920x1080](https://github.com/Zain-Razzaq/uniFinder/assets/98694742/63e80c65-20e6-4995-859c-7ab45bf21cf4)
 
+![Screenshot_2023-08-03-20-13-32_1920x1080](https://github.com/Zain-Razzaq/uniFinder/assets/98694742/1a255950-5e59-4378-80cb-532432cc09fd)
